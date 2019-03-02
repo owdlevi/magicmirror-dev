@@ -1,0 +1,24 @@
+.Bus{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-end;
+  align-items: flex-start;
+  margin-bottom: 5px;
+}
+
+.BusLine{
+  font-family: 'Lato', sans-serif;
+  font-size: 24px;
+  display: inline-block;
+  line-height: 24px;
+  width: 40px;
+}
+
+.BusTime{
+  font-family: 'Lato', sans-serif;
+  font-size: 21px;
+  display: inline-block;
+  text-align: left;
+  line-height: 24px;
+  width: 160px;
+}
