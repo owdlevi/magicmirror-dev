@@ -14,9 +14,13 @@ function createWindow () {
   mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
+    darkTheme: true,
     webPreferences: {
-      nodeIntegration: false
-    }
+      nodeIntegration: false,
+      zoomFactor: 1
+    },
+    backgroundColor: "#000000",
+    fullscreen: true
   })
 
   // and load the index.html of the app.
