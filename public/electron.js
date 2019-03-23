@@ -12,6 +12,7 @@ let mainWindow
 function createWindow () {
   // Create the browser window.
   mainWindow = new BrowserWindow({
+    frame: false,
     width: 800,
     height: 600,
     darkTheme: true,
