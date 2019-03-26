@@ -1,0 +1,53 @@
+.TodaysWeather{
+  margin-top: 30px;
+  text-align: left;
+}
+.TodaysWeather h1{
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 42px;
+  color: #ffffff;
+}
+
+.currentWeather{
+  display: flex;
+  flex-flow: column;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  max-width: 300px;
+}
+
+.todayTemperature{
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 32px;
+  color: #ffffff;
+  font-weight: bold;
+}
+.todayTemperature sup{
+  font-size: 32px;
+}
+
+.maxmin{
+  margin: 20px 0;
+  min-width: 100px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+.maxmin span{
+  display: inline-block;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 24px;;
+  color: #ffffff
+}
+
+.weeklyWeather{
+  max-width: 300px;
+}
+.weeklyWeather p{
+  font-size: 18px;
+  line-height: 1.5em;
+  text-align: center;
+  font-family: 'Roboto Condensed', sans-serif;
+}
