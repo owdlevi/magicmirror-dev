@@ -3,10 +3,13 @@ import ReactAnimatedWeather from 'react-animated-weather'
 import moment from 'moment'
 import weatherData from '../../utils/weatherFake'
 import { ICON_NAME, iconDefault } from  '../../utils/utils'
+import config from '../../config/config'
 import './Weather.css'
 
+let weatherAPI = config.weatherAPI || './weatherFake,js'
+
 export default class Weather extends Component {
-  _isMounted = false
+  _isMounted = false  
 
   constructor() {
     super()
@@ -20,14 +23,23 @@ export default class Weather extends Component {
     }
 
     const daily = weatherData.daily
-
     const data = {today, daily}
-
     this.state = { data }
+  }
+
+  updateWeather = () => {
+    fetch(weatherAPI)
+      .then(res => res.json())
+      .then(json => {
+        console.log(json)
+        // if(this._isMounted) this.setState({ buses: buses })
+      })
+      .catch()
   }
 
   componentDidMount() {
    this._isMounted = true
+  //  this.updateWeather()
   }
 
   componentWillUnmount() {
