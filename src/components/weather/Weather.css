@@ -24,8 +24,8 @@
   font-weight: bold;
 }
 .todayTemperature sup{
-  font-size: 32px;
 }
+font-size: 32px;
 
 .maxmin{
   margin: 20px 0;
@@ -38,16 +38,57 @@
 .maxmin span{
   display: inline-block;
   font-family: 'Roboto Condensed', sans-serif;
-  font-size: 24px;;
-  color: #ffffff
+  font-size: 24px;
+  color: #ffffff;
 }
 
 .weeklyWeather{
   max-width: 300px;
 }
 .weeklyWeather p{
+  display: inline-block;
+    display: flex;
+    flex-flow: column;
+  width: 100%;
   font-size: 18px;
   line-height: 1.5em;
   text-align: center;
   font-family: 'Roboto Condensed', sans-serif;
+}
+
+.dailyList{
+  margin-top: 40px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+.dayWeather{
+  display: flex;
+  flex-flow: column;
+  margin-right: 20px;
+  width: calc(100%/3 - 40px/3);
+}
+.dayWeather:nth-last-of-type(1){
+  margin-right: 0;
+}
+
+.dayWeather .dayName{
+  margin-bottom: 20px;
+  text-align: center;
+}
+.dayIcon{
+  display: flex;
+  justify-content: center;
+}
+
+.dayTemperature{
+  display: flex;
+  flex: row wrap;
+  justify-content: space-between;
+  margin-top: 10px;
+  padding: 0 10px;
+}
+.dayTemperature span{
+  display: inline-block;
+  font-size: 18px;
 }
