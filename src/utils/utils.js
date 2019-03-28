@@ -7,7 +7,8 @@ export const getBuses = () => {
 export const ICON_NAME = {
   'partly-cloudy-day': 'PARTLY_CLOUDY_DAY',
   'clear-day': 'CLEAR_DAY',
-  'partly-cloudy-night': 'PARTLY_CLOUDY_NIGHT'
+  'partly-cloudy-night': 'PARTLY_CLOUDY_NIGHT',
+  'clear-night': 'CLEAR_NIGHT'
 }
 
 export const iconDefault = {

@@ -1,5 +1,5 @@
 const config = {
-  weatherAPI : '',
+  weatherAPI : '/weather',
   tfl:{
     API_URL: 'https://api.tfl.gov.uk',
     APP_ID : '148f05be',
