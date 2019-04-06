@@ -3,7 +3,7 @@ import BusDetail from './BusDetail'
 import config from '../../config/config'
 import './Bus.css'
 
-const tflAPI = `${config.tfl.API_URL}/StopPoint/${config.busStationID}/Arrivals?app_id=${config.tfl.APP_ID}&app_key=${config.tfl.APP_KEY}`
+const tflAPI = `/bus`
 
 export default class Bus extends Component {
   _isMounted = false
