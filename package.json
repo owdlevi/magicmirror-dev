@@ -19,7 +19,6 @@
     "eject": "react-scripts eject",
     "start": "concurrently \"cross-env BROWSER=none npm run react-start\" \"wait-on http://localhost:3000 && electron .\""
   },
-  "proxy": "https://api.magicmirror.site",
   "main": "public/electron.js",
   "homepage": "./",
   "eslintConfig": {

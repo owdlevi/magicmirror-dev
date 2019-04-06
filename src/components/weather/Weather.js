@@ -5,10 +5,8 @@ import { ICON_NAME, iconDefault } from  '../../utils/utils'
 import config from '../../config/config'
 import './Weather.css'
 
-let weatherAPI = config.weatherAPI
-
 export default class Weather extends Component {
-  _isMounted = false  
+  _isMounted = false
 
   constructor() {
     super()
@@ -17,7 +15,7 @@ export default class Weather extends Component {
   }
 
   updateWeather = () => {
-    fetch(weatherAPI)
+    fetch(config.weatherAPI)
       .then(res => res.json() )
       .then(weatherData => {
         const { icon, summary, temperature } = weatherData.currently
@@ -49,7 +47,7 @@ export default class Weather extends Component {
     const { noWheatherData } = this.state
 
     return (noWheatherData) ? <div>No weather Data</div> : <div className='TodaysWeather'>
-        <CurrentWeather today = {today} /> 
+        <CurrentWeather today = {today} />
         <WeatherDaily daily = {daily} />
       </div>;
   }

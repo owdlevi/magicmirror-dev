@@ -3,8 +3,6 @@ import BusDetail from './BusDetail'
 import config from '../../config/config'
 import './Bus.css'
 
-const tflAPI = `/bus`
-
 export default class Bus extends Component {
   _isMounted = false
 
@@ -15,7 +13,7 @@ export default class Bus extends Component {
   }
 
   updateBus = () => {
-    fetch(tflAPI)
+    fetch(config.tflAPI)
       .then(res => res.json())
       .then(json => {
         let buses = json.filter(bus => bus.lineName !== config.removeBus)

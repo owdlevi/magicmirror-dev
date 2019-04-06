@@ -3,7 +3,6 @@ import React, { Component } from 'react'
 
 import quotes from '../../utils/data.js'
 import './Message.css'
-console.log(quotes)
 
 export default class Message extends Component {
   _isMounted = false
@@ -16,7 +15,6 @@ export default class Message extends Component {
 
   updateQuote = () => {
     const newQuote = quotes[Math.floor(Math.random()*quotes.length)]
-    console.log(newQuote)
     if(this._isMounted) this.setState({ quote: newQuote })
   }
 

@@ -1,5 +1,6 @@
 const config = {
-  weatherAPI : '/weather',
+  weatherAPI : 'https://mirrorapi-git-master.owdlevi.now.sh/weather',
+  tflAPI: 'https://mirrorapi-git-master.owdlevi.now.sh/bus',
   tfl:{
     API_URL: 'https://api.tfl.gov.uk',
     APP_ID : '148f05be',
