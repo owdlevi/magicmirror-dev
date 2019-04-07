@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
-// import MessageText from './MessageText'
-
-import quotes from '../../utils/data.js'
+import config from '../../config/config'
 import './Message.css'
 
 export default class Message extends Component {
@@ -9,13 +7,20 @@ export default class Message extends Component {
 
   constructor() {
     super()
-    this.state = { quote: {text: ''} }
+    this.state = { quote: {message: ''} }
     setInterval(this.updateQuote, 1000 * 30)
   }
 
   updateQuote = () => {
-    const newQuote = quotes[Math.floor(Math.random()*quotes.length)]
-    if(this._isMounted) this.setState({ quote: newQuote })
+    fetch(config.messageAPI)
+      .then(res => res.json())
+      .then(res => {
+        const quotes = res.data
+        const newQuote = quotes[Math.floor(Math.random()*quotes.length)]
+        console.log(newQuote)
+        if(this._isMounted) this.setState({ quote: newQuote })
+      })
+      .catch()
   }
 
   componentDidMount() {
@@ -28,7 +33,7 @@ export default class Message extends Component {
   }
 
   render() {
-    const quote  = this.state.quote.text || ''
+    const quote  = this.state.quote.message || ''
 
     return <div className='Quote'>
         {quote}

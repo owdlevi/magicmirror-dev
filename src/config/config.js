@@ -1,6 +1,7 @@
 const config = {
   weatherAPI : 'https://api.magicmirror.site/weather',
   tflAPI: 'https://api.magicmirror.site/bus',
+  messageAPI: 'https://api.magicmirror.site/messages',
   tfl:{
     API_URL: 'https://api.tfl.gov.uk',
     APP_ID : '148f05be',
