@@ -8,7 +8,7 @@ export default class Message extends Component {
   constructor() {
     super()
     this.state = { quote: {message: ''} }
-    setInterval(this.updateQuote, 1000 * 30)
+    setInterval(this.updateQuote, 1000 * 15)
   }
 
   updateQuote = () => {
@@ -17,7 +17,6 @@ export default class Message extends Component {
       .then(res => {
         const quotes = res.data
         const newQuote = quotes[Math.floor(Math.random()*quotes.length)]
-        console.log(newQuote)
         if(this._isMounted) this.setState({ quote: newQuote })
       })
       .catch()
