@@ -40,6 +40,15 @@
   left: 20%;
   width: 60%;
 }
+
+.videoPlayer{
+  width: 640px;
+  height: 480px;
+  position: absolute;
+  bottom: 150px;
+  left: calc(50% - 320px);
+  display: block;
+}
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 40vmin;
