@@ -45,7 +45,7 @@
   width: 640px;
   height: 480px;
   position: absolute;
-  bottom: 150px;
+  bottom: 350px;
   left: calc(50% - 320px);
   display: block;
 }
