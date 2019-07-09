@@ -19,7 +19,7 @@ class App extends Component {
           <Bus />
         </div>
         <div className="videoPlayer">
-          <img src='http://192.168.0.127:8080/stream/video.jpeg' alt=''/>
+          <img src='http://192.168.0.127:8000/stream.mjpg' alt=''/>
         </div>
         <div className='Message'>
             <Message />
