@@ -1,39 +1,34 @@
-import React, { Component } from 'react'
-import moment from 'moment'
-import './Today.css'
+import React, { useState, useEffect } from "react";
+import moment from "moment";
+import "./Today.css";
 
-export default class Today extends Component {
-  _isMounted = false
+const Today = () => {
+  const [todayState, setTodayState] = useState({
+    day: moment().format("dddd"),
+    today: moment().format("D MMMM")
+  });
 
-  constructor() {
-    super()
-    this.state = {
-      day: moment().format('dddd'),
-      today: moment().format('D MMMM')
-    }
+  useEffect(() => {
+    const interval = setInterval(checkDate, 1000 * 60 * 5);
+    return () => {
+      clearInterval(interval);
+    };
+  });
 
-    setInterval(this.checkDate, 1000 * 60 * 5)
-  }
+  const checkDate = () => {
+    setTodayState({
+      day: moment().format("dddd"),
+      today: moment().format("D MMMM")
+    });
+  };
 
-  checkDate = () => {
-    if (this._isMounted) this.setState({
-      day: moment().format('dddd'),
-      today: moment().format('D MMMM')
-    })
-  }
+  const { day, today } = todayState;
 
-  componentDidMount() {
-   this._isMounted = true
-  }
+  return (
+    <div className="Today">
+      {day}, {today}
+    </div>
+  );
+};
 
-  componentWillUnmount() {
-   this._isMounted = false
-  }
-
-  render() {
-    const { day,today } = this.state;
-    return <div className='Today'>
-        {day}, {today}
-      </div>;
-  }
-}
+export default Today;

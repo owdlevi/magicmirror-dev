@@ -1,49 +1,38 @@
-import React, { Component } from 'react'
-import BusDetail from './BusDetail'
-import config from '../../config/config'
-import './Bus.css'
+import React, { useState, useEffect } from "react";
+import BusDetail from "./BusDetail";
+import config from "../../config/config";
+import "./Bus.css";
+const Bus = () => {
+  const [buses, setBuses] = useState([]);
 
-export default class Bus extends Component {
-  _isMounted = false
+  useEffect(() => {
+    const updateBus = () => {
+      fetch(config.tflAPI)
+        .then(res => res.json())
+        .then(json => {
+          let buses = json.filter(bus => bus.lineName !== config.removeBus);
 
-  constructor() {
-    super()
-    this.state = { buses: [] }
-    setInterval(this.updateBus, 1000*30)
-  }
+          buses.sort((a, b) => {
+            if (a.expectedArrival < b.expectedArrival) return -1;
+            if (a.expectedArrival > b.expectedArrival) return 1;
+            return 0;
+          });
 
-  updateBus = () => {
-    fetch(config.tflAPI)
-      .then(res => res.json())
-      .then(json => {
-        let buses = json.filter(bus => bus.lineName !== config.removeBus)
-
-        buses.sort((a, b) => {
-          if (a.expectedArrival < b.expectedArrival) return -1
-          if (a.expectedArrival > b.expectedArrival) return 1
-          return 0
+          setBuses(buses);
         })
+        .catch();
+    };
 
-       if(this._isMounted) this.setState({ buses: buses })
-      })
-      .catch()
-  }
+    const interval = setInterval(updateBus(), 1000 * 30);
 
-  componentDidMount() {
-    this._isMounted = true
-    this.updateBus()
-  }
+    return () => {
+      clearInterval(interval);
+    };
+  }, []);
 
-  componentWillUnmount() {
-   this._isMounted = false
-  }
+  const busList = buses.map(bus => <BusDetail key={bus.id} bus={bus} />);
 
-  render() {
-    const { buses } = this.state
-    const busList = buses.map(bus => <BusDetail key={bus.id} bus={bus} />)
+  return <div className="BusList">{busList}</div>;
+};
 
-    return <div className='BusList'>
-        {busList}
-    </div>
-  }
-}
+export default Bus;
