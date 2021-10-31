@@ -8,7 +8,7 @@ export default class Message extends Component {
   constructor() {
     super();
     this.state = { quote: { message: "" } };
-    setInterval(this.updateQuote, 1000 * 15);
+    setInterval(this.updateQuote, 1000 * 30);
   }
 
   updateQuote = () => {

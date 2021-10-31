@@ -6,7 +6,8 @@ const Bus = () => {
   const [buses, setBuses] = useState([]);
 
   useEffect(() => {
-    const updateBus = () => {
+
+    const interval = setInterval(() => {
       fetch(config.tflAPI)
         .then(res => res.json())
         .then(json => {
@@ -21,9 +22,7 @@ const Bus = () => {
           setBuses(buses);
         })
         .catch();
-    };
-
-    const interval = setInterval(updateBus(), 1000 * 30);
+    }, 1000 * 30);
 
     return () => {
       clearInterval(interval);
